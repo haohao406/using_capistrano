@@ -51,4 +51,5 @@ production:
   <<: *default
   database: using_capistrano_production
   username: root
-  password: <%= ENV['MYSQL_PASSWORD'] %>
+  # password: <%= ENV['MYSQL_PASSWORD'] %>
+  password: 123456
