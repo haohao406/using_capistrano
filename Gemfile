@@ -44,7 +44,7 @@ group :development do
   gem "capistrano", "~> 3.14", require: false
   gem "capistrano-rails", "~> 1.6", require: false
   gem 'capistrano-rvm'
-  gem 'capistrano3-puma'
+  gem 'capistrano3-puma', require: false
 end
 
 group :test do
