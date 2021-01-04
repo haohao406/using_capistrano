@@ -44,14 +44,14 @@ set :rvm_custom_path, '/usr/share/rvm'
 # set :ssh_options, verify_host_key: :secure
 
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
-append :linked_files, 'config/master.key'
+append :linked_files, 'config/database.yml', 'config/master.key'
 
 # copy file if not exist
 namespace :deploy do
   namespace :check do
     before :linked_files, :copy_linked_files_if_needed do
       on roles(:app), in: :sequence, wait: 10 do
-        %w{master.key}.each do |config_filename|
+        %w{master.key database.yml}.each do |config_filename|
           unless test("[ -f #{shared_path}/config/#{config_filename} ]")
             upload! "config/#{config_filename}", "#{shared_path}/config/#{config_filename}"
           end
