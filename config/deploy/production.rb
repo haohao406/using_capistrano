@@ -9,6 +9,9 @@
 
 server '<server_id_address>', user: "<user>", roles: %w{app db web}
 
+# Deploy to the user's home directory
+set :deploy_to, "/home/haohao/#{fetch :application}"
+
 # role-based syntax
 # ==================
 
